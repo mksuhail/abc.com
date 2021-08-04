@@ -10,7 +10,7 @@ end
 
 #Create a New Doc root - /var/www/html/abc.com - directory
 
-directory '/var/www/html/abc.com' do
+directory '/var/www/html/abc1.com' do
   owner 'root'
   group 'root'
   mode '0755'
@@ -20,7 +20,7 @@ end
 
 #copy the code from git dev branch to New Doc root - git
 
-git '/var/www/html/abc.com' do
+git '/var/www/html/abc1.com' do
   repository 'https://github.com/mailrahulsre/abc.com.git'
   revision 'dev'
   action :sync
@@ -29,7 +29,7 @@ end
 #change httpd.conf
 
 remote_file '/etc/httpd/conf/httpd.conf' do
-  source 'file:///var/www/html/abc.com/httpd.conf'
+  source 'file:///var/www/html/abc1.com/httpd.conf'
   mode '0755'
   owner 'root'
   group 'root'
